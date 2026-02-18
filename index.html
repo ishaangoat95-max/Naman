@@ -11,21 +11,21 @@
 
 <body>
 
-<!-- 🎥 BACKGROUND VIDEO -->
+<!-- 🎥 VIDEO BACKGROUND -->
 <video autoplay muted loop playsinline class="bg-video">
     <source src="levi.mp4" type="video/mp4">
 </video>
 
 <!-- DARK OVERLAY -->
-<div class="video-overlay"></div>
+<div class="overlay"></div>
 
-<!-- INTRO SCREEN -->
+<!-- ENTER SCREEN -->
 <div id="enter-screen">
-    <button class="enter-btn">Enter Heaven</button>
+    <button class="enter-btn">ENTER HEAVEN</button>
 </div>
 
-<!-- MAIN CARD -->
-<div class="angel-card">
+<!-- MAIN CONTENT CENTER -->
+<div class="main">
 
     <div class="pfp-wrapper">
         <img src="levinew.webp" class="pfp" alt="Naman">
@@ -35,29 +35,31 @@
     <h1 class="name">Naman</h1>
     <p class="tagline">Blessed with vision. Built different.</p>
 
-    <div class="powers">
+    <div class="skills">
         <span>Visionary</span>
         <span>Creative</span>
         <span>Divine Energy</span>
         <span>Chosen One</span>
     </div>
 
-    <a href="https://instagram.com/wanabenaman" target="_blank" class="insta">
+    <a href="https://instagram.com/wanabenaman" target="_blank" class="insta-btn">
         <i class="fa-brands fa-instagram"></i> Angel Realm
     </a>
 
 </div>
 
+<!-- MUSIC -->
 <audio id="bg-music" loop>
     <source src="angel-music.m4a.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-const enter = document.getElementById("enter-screen");
+const enterBtn = document.querySelector(".enter-btn");
+const enterScreen = document.getElementById("enter-screen");
 const music = document.getElementById("bg-music");
 
-enter.addEventListener("click", ()=>{
-    enter.classList.add("fade");
+enterBtn.addEventListener("click", ()=>{
+    enterScreen.classList.add("fade");
     music.volume = 0.5;
     music.play();
 });
