@@ -7,14 +7,14 @@
 
 body{
   height:100vh;
+  overflow:hidden;
+  color:white;
   display:flex;
   justify-content:center;
   align-items:center;
-  color:white;
-  overflow:hidden;
 }
 
-/* 🎥 VIDEO BACKGROUND */
+/* VIDEO BACKGROUND */
 
 .bg-video{
   position:fixed;
@@ -28,17 +28,17 @@ body{
 
 /* DARK OVERLAY */
 
-.video-overlay{
+.overlay{
   position:fixed;
   top:0;
   left:0;
   width:100%;
   height:100%;
-  background:rgba(0,0,0,0.6);
+  background:rgba(0,0,0,0.65);
   z-index:-1;
 }
 
-/* INTRO SCREEN */
+/* ENTER SCREEN */
 
 #enter-screen{
   position:fixed;
@@ -47,7 +47,7 @@ body{
   justify-content:center;
   align-items:center;
   background:black;
-  z-index:10;
+  z-index:100;
   transition:opacity 0.8s ease;
 }
 
@@ -56,36 +56,43 @@ body{
   pointer-events:none;
 }
 
+/* WHITE GLOW BUTTON */
+
 .enter-btn{
-  padding:15px 40px;
-  font-size:18px;
-  border:none;
+  padding:18px 55px;
+  font-size:20px;
+  letter-spacing:4px;
+  border:2px solid white;
   border-radius:50px;
-  background:linear-gradient(45deg,#00ff87,#60efff);
-  color:black;
+  background:transparent;
+  color:white;
   cursor:pointer;
   font-weight:bold;
-  box-shadow:0 0 20px #00ff87;
-  transition:0.3s;
+  text-transform:uppercase;
+
+  box-shadow:
+    0 0 10px white,
+    0 0 20px white,
+    0 0 40px white,
+    0 0 80px rgba(255,255,255,0.9);
+
+  transition:0.3s ease;
 }
 
 .enter-btn:hover{
-  transform:scale(1.1);
+  background:white;
+  color:black;
+  transform:scale(1.05);
 }
 
-/* CARD */
+/* CENTER MAIN */
 
-.angel-card{
-  width:360px;
-  padding:40px;
+.main{
   text-align:center;
-  border-radius:25px;
-  background:rgba(0,0,0,0.6);
-  backdrop-filter:blur(20px);
-  box-shadow:0 0 40px rgba(0,255,135,0.4);
+  z-index:1;
 }
 
-/* PFP */
+/* PROFILE */
 
 .pfp-wrapper{
   position:relative;
@@ -93,57 +100,66 @@ body{
 }
 
 .pfp{
-  width:130px;
-  height:130px;
+  width:140px;
+  height:140px;
   border-radius:50%;
   object-fit:cover;
-  border:3px solid #00ff87;
+  border:3px solid white;
 }
 
 .glow-ring{
   position:absolute;
   top:-10px;
   left:-10px;
-  width:150px;
-  height:150px;
+  width:160px;
+  height:160px;
   border-radius:50%;
-  background:radial-gradient(circle,#00ff87,transparent);
-  filter:blur(25px);
+  background:radial-gradient(circle,white,transparent);
+  filter:blur(30px);
   z-index:-1;
 }
 
+/* NAME */
+
 .name{
   margin-top:20px;
-  font-size:28px;
+  font-size:32px;
   letter-spacing:2px;
 }
+
+/* TAGLINE */
 
 .tagline{
   margin:10px 0 20px;
   opacity:0.8;
 }
 
-.powers span{
+/* SKILLS */
+
+.skills span{
   display:inline-block;
-  padding:6px 14px;
-  margin:5px;
-  border-radius:20px;
+  padding:8px 16px;
+  margin:6px;
+  border-radius:30px;
   font-size:12px;
-  background:rgba(0,255,135,0.2);
+  background:rgba(255,255,255,0.15);
 }
 
-.insta{
+/* INSTAGRAM BUTTON */
+
+.insta-btn{
   display:inline-block;
-  margin-top:20px;
-  padding:10px 25px;
-  border-radius:30px;
+  margin-top:25px;
+  padding:14px 40px;
+  border-radius:50px;
   text-decoration:none;
+  font-weight:bold;
   color:white;
-  border:1px solid #00ff87;
+  border:2px solid white;
   transition:0.3s;
 }
 
-.insta:hover{
-  background:#00ff87;
+.insta-btn:hover{
+  background:white;
   color:black;
 }
