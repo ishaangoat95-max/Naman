@@ -16,20 +16,18 @@
     <source src="levi.mp4" type="video/mp4">
 </video>
 
-<!-- DARK OVERLAY -->
-<div class="overlay"></div>
+<!-- BLUR OVERLAY -->
+<div id="intro">
 
-<!-- ENTER SCREEN -->
-<div id="enter-screen">
-    <button class="enter-btn">ENTER HEAVEN</button>
+    <h1 class="enter-text">ENTER IN HEAVEN</h1>
+
 </div>
 
-<!-- MAIN CONTENT CENTER -->
+<!-- MAIN CONTENT -->
 <div class="main">
 
     <div class="pfp-wrapper">
         <img src="levinew.webp" class="pfp" alt="Naman">
-        <div class="glow-ring"></div>
     </div>
 
     <h1 class="name">Naman</h1>
@@ -54,12 +52,11 @@
 </audio>
 
 <script>
-const enterBtn = document.querySelector(".enter-btn");
-const enterScreen = document.getElementById("enter-screen");
+const intro = document.getElementById("intro");
 const music = document.getElementById("bg-music");
 
-enterBtn.addEventListener("click", ()=>{
-    enterScreen.classList.add("fade");
+intro.addEventListener("click", () => {
+    intro.classList.add("hide");
     music.volume = 0.5;
     music.play();
 });
