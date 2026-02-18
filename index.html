@@ -1,110 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Naman</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naman ✨</title>
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Naman" />
-  <meta property="og:description" content="ɪᴅᴇᴀs ᴀʀᴇ sᴘᴇʀᴍs 
-    ᴏɴʟʏ ᴏɴᴇ ɪɴ ᴀ ᴍɪʟʟɪᴏɴ ᴡᴏʀᴋs" />
-  <meta property="og:image" content="IMG_20260129_150222_863.webp" />
-  <meta property="og:url" content="https://ishaangoat95.github.io/Naman/" />
-  <meta property="og:type" content="website" />
-
-  <link rel="stylesheet" href="style.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-
-  <style>
-    #enter-screen {
-      position: fixed;
-      inset: 0;
-      backdrop-filter: blur(15px);
-      background: rgba(0,0,0,0.75);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      cursor: pointer;
-      transition: opacity 0.8s ease;
-    }
-    #enter-screen.hide {
-      opacity: 0;
-      pointer-events: none;
-    }
-    .enter-text {
-      font-size: 26px;
-      letter-spacing: 3px;
-      color: white;
-      text-align: center;
-      text-shadow: 0 0 8px white, 0 0 16px white, 0 0 32px white;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%,100% { opacity: 1; }
-      50% { opacity: 0.6; }
-    }
-  </style>
+<link rel="stylesheet" href="style.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 </head>
+
 <body>
 
+<!-- ANGEL INTRO -->
 <div id="enter-screen">
-  <div class="enter-text">Click to Enter</div>
+    <div class="halo"></div>
+    <h1>Enter Heaven</h1>
 </div>
 
-<video class="bg-video" autoplay muted loop playsinline>
-  <source src="bg.mp4" type="video/mp4">
-</video>
+<!-- MAIN CARD -->
+<div class="angel-card">
 
-<div class="overlay"></div>
+    <div class="pfp-wrapper">
+        <img src="pfp.webp" class="pfp">
+        <div class="glow-ring"></div>
+    </div>
 
-<div class="card">
-  <img class="pfp" src="IMG_20260129_150222_863.webp" alt="Naman">
+    <h1 class="name">Naman</h1>
+    <p class="tagline">Blessed with vision. Built different.</p>
 
-  <h1 class="name">Naman</h1>
+    <div class="powers">
+        <span>Visionary</span>
+        <span>Creative</span>
+        <span>Divine Energy</span>
+        <span>Chosen One</span>
+    </div>
 
-  <p class="about">
-    Be yourself, be awesome.
-  </p>
+    <a href="https://instagram.com/wanabenaman" target="_blank" class="insta">
+        <i class="fa-brands fa-instagram"></i> Angel Realm
+    </a>
 
-  <div class="skills">
-    <span>Creative</span>
-    <span>Smart</span>
-    <span>Gamer</span>
-    <span>Genius</span>
-    <span>Asthetic</span>
-  </div>
+</div>
 
-  <a class="insta" href="https://instagram.com/wanabenaman?igsh=MXc4NHhkcjBjeG5veg==" target="_blank">
-    <i class="fa-brands fa-instagram"></i> Instagram
-  </a>
-
-  <footer>Your Awesome Title</footer>
+<!-- MUSIC BUTTON -->
+<div class="music-btn" id="musicToggle">
+    <i class="fa-solid fa-music"></i>
 </div>
 
 <audio id="bg-music" loop>
-  <source src="Mann%Mera%(Original%Version)%Official%HD%Music%Video.m4a" type="audio/mpeg">
+    <source src="angel-music.m4a" type="audio/mpeg">
 </audio>
 
 <script>
-  const enterScreen = document.getElementById("enter-screen");
-  const music = document.getElementById("bg-music");
+const enter = document.getElementById("enter-screen");
+const music = document.getElementById("bg-music");
+const toggle = document.getElementById("musicToggle");
 
-  music.volume = 0;
+let playing = false;
 
-  enterScreen.addEventListener("click", () => {
-    enterScreen.classList.add("hide");
+enter.addEventListener("click", ()=>{
+    enter.classList.add("fade");
+    music.volume = 0.4;
     music.play();
+    playing = true;
+});
 
-    let vol = 0;
-    const fade = setInterval(() => {
-      if(vol < 1.0){
-        vol += 0.05;
-        music.volume = vol;
-      } else clearInterval(fade);
-    }, 100);
-  });
+toggle.addEventListener("click", ()=>{
+    if(playing){
+        music.pause();
+        toggle.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+    }else{
+        music.play();
+        toggle.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+    }
+    playing = !playing;
+});
 </script>
 
 </body>
