@@ -21,7 +21,6 @@
 <div class="angel-card">
 
     <div class="pfp-wrapper">
-        <!-- ✅ UPDATED IMAGE NAME -->
         <img src="levinew.webp" class="pfp" alt="Naman Profile Picture">
         <div class="glow-ring"></div>
     </div>
@@ -42,11 +41,7 @@
 
 </div>
 
-<!-- MUSIC BUTTON -->
-<div class="music-btn" id="musicToggle">
-    <i class="fa-solid fa-music"></i>
-</div>
-
+<!-- 🎵 MUSIC -->
 <audio id="bg-music" loop>
     <source src="angel-music.m4a" type="audio/mpeg">
 </audio>
@@ -54,27 +49,14 @@
 <script>
 const enter = document.getElementById("enter-screen");
 const music = document.getElementById("bg-music");
-const toggle = document.getElementById("musicToggle");
-
-let playing = false;
 
 enter.addEventListener("click", ()=>{
     enter.classList.add("fade");
-    music.volume = 0.4;
-    music.play();
-    playing = true;
-    toggle.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
-});
 
-toggle.addEventListener("click", ()=>{
-    if(playing){
-        music.pause();
-        toggle.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
-    }else{
-        music.play();
-        toggle.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
-    }
-    playing = !playing;
+    music.volume = 0.5;   // volume control
+    music.play().catch(() => {
+        console.log("Autoplay blocked until user interaction");
+    });
 });
 </script>
 
