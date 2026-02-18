@@ -11,17 +11,24 @@
 
 <body>
 
-<!-- ANGEL INTRO -->
+<!-- 🎥 BACKGROUND VIDEO -->
+<video autoplay muted loop playsinline class="bg-video">
+    <source src="levi.mp4" type="video/mp4">
+</video>
+
+<!-- DARK OVERLAY -->
+<div class="video-overlay"></div>
+
+<!-- INTRO SCREEN -->
 <div id="enter-screen">
-    <div class="halo"></div>
-    <h1>Enter Heaven</h1>
+    <button class="enter-btn">Enter Heaven</button>
 </div>
 
 <!-- MAIN CARD -->
 <div class="angel-card">
 
     <div class="pfp-wrapper">
-        <img src="levinew.webp" class="pfp" alt="Naman Profile Picture">
+        <img src="levinew.webp" class="pfp" alt="Naman">
         <div class="glow-ring"></div>
     </div>
 
@@ -41,7 +48,6 @@
 
 </div>
 
-<!-- 🎵 MUSIC -->
 <audio id="bg-music" loop>
     <source src="angel-music.m4a.mp3" type="audio/mpeg">
 </audio>
@@ -52,11 +58,8 @@ const music = document.getElementById("bg-music");
 
 enter.addEventListener("click", ()=>{
     enter.classList.add("fade");
-
-    music.volume = 0.5;   // volume control
-    music.play().catch(() => {
-        console.log("Autoplay blocked until user interaction");
-    });
+    music.volume = 0.5;
+    music.play();
 });
 </script>
 
