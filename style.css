@@ -2,16 +2,16 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Segoe UI', sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
 }
 
 body{
   height:100vh;
   overflow:hidden;
-  color:white;
   display:flex;
   justify-content:center;
   align-items:center;
+  color:white;
 }
 
 /* VIDEO BACKGROUND */
@@ -26,66 +26,49 @@ body{
   z-index:-2;
 }
 
-/* DARK OVERLAY */
+/* INTRO BLUR SCREEN */
 
-.overlay{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.65);
-  z-index:-1;
-}
-
-/* ENTER SCREEN */
-
-#enter-screen{
+#intro{
   position:fixed;
   inset:0;
+  backdrop-filter:blur(20px);
+  background:rgba(0,0,0,0.6);
   display:flex;
   justify-content:center;
   align-items:center;
-  background:black;
   z-index:100;
+  cursor:pointer;
   transition:opacity 0.8s ease;
 }
 
-#enter-screen.fade{
+#intro.hide{
   opacity:0;
   pointer-events:none;
 }
 
-/* WHITE GLOW BUTTON */
+/* WHITE GLOW TEXT */
 
-.enter-btn{
-  padding:18px 55px;
-  font-size:20px;
-  letter-spacing:4px;
-  border:2px solid white;
-  border-radius:50px;
-  background:transparent;
-  color:white;
-  cursor:pointer;
+.enter-text{
+  font-size:32px;
   font-weight:bold;
-  text-transform:uppercase;
+  letter-spacing:4px;
+  color:white;
 
-  box-shadow:
+  text-shadow:
     0 0 10px white,
     0 0 20px white,
     0 0 40px white,
     0 0 80px rgba(255,255,255,0.9);
 
-  transition:0.3s ease;
+  animation:pulse 2s infinite;
 }
 
-.enter-btn:hover{
-  background:white;
-  color:black;
-  transform:scale(1.05);
+@keyframes pulse{
+  0%,100%{opacity:1;}
+  50%{opacity:0.7;}
 }
 
-/* CENTER MAIN */
+/* MAIN CENTER */
 
 .main{
   text-align:center;
@@ -94,47 +77,24 @@ body{
 
 /* PROFILE */
 
-.pfp-wrapper{
-  position:relative;
-  display:inline-block;
-}
-
 .pfp{
   width:140px;
   height:140px;
   border-radius:50%;
   object-fit:cover;
   border:3px solid white;
+  margin-bottom:20px;
 }
-
-.glow-ring{
-  position:absolute;
-  top:-10px;
-  left:-10px;
-  width:160px;
-  height:160px;
-  border-radius:50%;
-  background:radial-gradient(circle,white,transparent);
-  filter:blur(30px);
-  z-index:-1;
-}
-
-/* NAME */
 
 .name{
-  margin-top:20px;
-  font-size:32px;
-  letter-spacing:2px;
+  font-size:30px;
+  margin-bottom:10px;
 }
-
-/* TAGLINE */
 
 .tagline{
-  margin:10px 0 20px;
   opacity:0.8;
+  margin-bottom:20px;
 }
-
-/* SKILLS */
 
 .skills span{
   display:inline-block;
@@ -144,8 +104,6 @@ body{
   font-size:12px;
   background:rgba(255,255,255,0.15);
 }
-
-/* INSTAGRAM BUTTON */
 
 .insta-btn{
   display:inline-block;
