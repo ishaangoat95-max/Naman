@@ -21,7 +21,8 @@
 <div class="angel-card">
 
     <div class="pfp-wrapper">
-        <img src="pfp.webp" class="pfp">
+        <!-- ✅ UPDATED IMAGE NAME -->
+        <img src="levinew.webp" class="pfp" alt="Naman Profile Picture">
         <div class="glow-ring"></div>
     </div>
 
@@ -62,6 +63,7 @@ enter.addEventListener("click", ()=>{
     music.volume = 0.4;
     music.play();
     playing = true;
+    toggle.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
 });
 
 toggle.addEventListener("click", ()=>{
