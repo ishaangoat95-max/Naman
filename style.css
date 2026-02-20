@@ -15,7 +15,6 @@ body{
 }
 
 /* VIDEO */
-
 .bg-video{
   position:fixed;
   top:0;
@@ -26,8 +25,7 @@ body{
   z-index:-2;
 }
 
-/* INTRO OVERLAY (BLUR EFFECT) */
-
+/* INTRO OVERLAY */
 #intro{
   position:fixed;
   inset:0;
@@ -47,7 +45,6 @@ body{
 }
 
 /* GLOW TEXT */
-
 .enter-text{
   font-size:34px;
   font-weight:bold;
@@ -68,21 +65,74 @@ body{
 }
 
 /* MAIN */
-
 .main{
   text-align:center;
   z-index:1;
 }
 
+/* 🔥 PFP + WINGS CONTAINER */
+.pfp-container{
+  position:relative;
+  display:inline-block;
+  margin-bottom:20px;
+}
+
+/* PROFILE IMAGE */
 .pfp{
   width:140px;
   height:140px;
   border-radius:50%;
   object-fit:cover;
   border:3px solid white;
-  margin-bottom:20px;
+  position:relative;
+  z-index:2;
 }
 
+/* WINGS BASE */
+.wing{
+  position:absolute;
+  top:50%;
+  width:85px;            /* ✅ Smaller size */
+  opacity:0.95;
+  z-index:1;
+  filter:drop-shadow(0 0 6px white);
+}
+
+/* LEFT WING */
+.left-wing{
+  left:-50px;
+  transform-origin:right center;  /* Pivot natural */
+  animation:flapLeft 2.5s ease-in-out infinite alternate;
+}
+
+/* RIGHT WING */
+.right-wing{
+  right:-50px;
+  transform-origin:left center;
+  transform:scaleX(-1);
+  animation:flapRight 2.5s ease-in-out infinite alternate;
+}
+
+/* FLAP ANIMATION */
+@keyframes flapLeft{
+  from{
+    transform:translateY(-50%) rotate(0deg);
+  }
+  to{
+    transform:translateY(-50%) rotate(-6deg);
+  }
+}
+
+@keyframes flapRight{
+  from{
+    transform:translateY(-50%) scaleX(-1) rotate(0deg);
+  }
+  to{
+    transform:translateY(-50%) scaleX(-1) rotate(6deg);
+  }
+}
+
+/* TEXT */
 .name{
   font-size:30px;
   margin-bottom:10px;
@@ -103,7 +153,6 @@ body{
 }
 
 /* INSTAGRAM BUTTON */
-
 .insta-btn{
   display:inline-block;
   margin-top:25px;
@@ -122,16 +171,15 @@ body{
 }
 
 /* DISCORD BUTTON */
-
 .discord-btn{
   display:inline-block;
   margin-top:15px;
-  padding:14px 40px; /* Same size */
+  padding:14px 40px;
   border-radius:50px;
   text-decoration:none;
   font-weight:bold;
-  border:2px solid #5865F2; /* Discord Blue */
-  color:#5865F2; /* Text Blue */
+  border:2px solid #5865F2;
+  color:#5865F2;
   transition:0.3s;
 }
 
