@@ -2,7 +2,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: Arial, sans-serif;
+    font-family:Arial, sans-serif;
 }
 
 body{
@@ -12,10 +12,9 @@ body{
     justify-content:center;
     align-items:center;
     color:white;
-    background: #000;
 }
 
-/* 🎥 VIDEO */
+/* VIDEO */
 .bg-video{
     position:fixed;
     top:0;
@@ -26,74 +25,58 @@ body{
     z-index:-2;
 }
 
-/* 🏠 MAIN */
+/* INTRO OVERLAY */
+#intro{
+    position:fixed;
+    inset:0;
+    backdrop-filter:blur(25px);
+    background:rgba(0,0,0,0.75);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:100;
+    cursor:pointer;
+    transition:opacity 0.8s ease;
+}
+
+#intro.hide{
+    opacity:0;
+    pointer-events:none;
+}
+
+/* GLOW TEXT */
+.enter-text{
+    font-size:34px;
+    font-weight:bold;
+    letter-spacing:5px;
+    color:white;
+    text-align:center;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{opacity:1;}
+    50%{opacity:0.6;}
+}
+
+/* MAIN */
 .main{
     text-align:center;
     z-index:5;
     position:relative;
 }
 
-/* 👼 PFP CONTAINER */
+/* PFP CONTAINER */
 .pfp-container{
     position:relative;
     display:inline-flex;
     justify-content:center;
     align-items:center;
     margin-bottom:20px;
-    perspective: 1000px;
 }
 
-/* 😇 HALO.PNG (Seedha & Animated) */
-.halo {
-    position: absolute;
-    top: -45px; 
-    width: 150px;
-    height: 150px;
-    z-index: 3;
-    background: url('halo.png') no-repeat center center;
-    background-size: contain;
-    /* Isse halo flat dikhega */
-    transform: rotateX(75deg); 
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
-    animation: haloRotate 5s linear infinite;
-    pointer-events: none;
-}
-
-@keyframes haloRotate {
-    from { transform: rotateX(75deg) rotateZ(0deg); }
-    to { transform: rotateX(75deg) rotateZ(360deg); }
-}
-
-/* 🪽 WINGS (Single File Logic) */
-.wing {
-    position: absolute;
-    top: 50%;
-    width: 180px; 
-    height: 120px;
-    z-index: 1; 
-    pointer-events: none;
-    background-image: url('wings.png'); 
-    background-size: 200% 100%; 
-    background-repeat: no-repeat;
-}
-
-.left-wing {
-    left: -130px; 
-    background-position: left center;
-    transform: translateY(-50%) rotate(-10deg);
-    transform-origin: right center;
-    animation: flapLeft 2.2s ease-in-out infinite alternate;
-}
-
-.right-wing {
-    right: -130px;
-    background-position: right center;
-    transform: translateY(-50%) rotate(10deg);
-    transform-origin: left center;
-    animation: flapRight 2.2s ease-in-out infinite alternate;
-}
-
-/* 🖼️ PFP */
+/* PROFILE IMAGE */
 .pfp{
     width:140px;
     height:140px;
@@ -101,21 +84,51 @@ body{
     object-fit:cover;
     border:3px solid white;
     position:relative;
-    z-index:2;
+    z-index:2; /* Wings ke upar rahega */
 }
 
-/* 🎭 ANIMATIONS */
-@keyframes flapLeft {
-    from { transform: translateY(-50%) rotate(-5deg); }
-    to { transform: translateY(-50%) rotate(-15deg); }
+/* WINGS LOGIC (For single image sprite) */
+.wing{
+    position:absolute;
+    top:50%;
+    width:180px; /* Wings ka size */
+    height:130px;
+    z-index:1; /* PFP ke peeche */
+    background-image: url('wings.png'); /* File ka naam check kar lena */
+    background-size: 200% 100%; /* Image ko stretch kiya crop ke liye */
+    background-repeat: no-repeat;
+    pointer-events: none;
+    filter: drop-shadow(0 0 5px rgba(255,255,255,0.4));
 }
 
-@keyframes flapRight {
-    from { transform: translateY(-50%) rotate(5deg); }
-    to { transform: translateY(-50%) rotate(15deg); }
+.left-wing{
+    left: -130px; /* Adjust location behind PFP */
+    background-position: left center;
+    transform: translateY(-50%) rotate(-10deg);
+    transform-origin: right center;
+    animation: flapLeft 2.2s ease-in-out infinite alternate;
 }
 
-/* ✍️ TEXT & BUTTONS */
+.right-wing{
+    right: -130px;
+    background-position: right center;
+    transform: translateY(-50%) rotate(10deg);
+    transform-origin: left center;
+    animation: flapRight 2.2s ease-in-out infinite alternate;
+}
+
+/* ANIMATIONS */
+@keyframes flapLeft{
+    from{ transform: translateY(-50%) rotate(-5deg); }
+    to{ transform: translateY(-50%) rotate(-15deg); }
+}
+
+@keyframes flapRight{
+    from{ transform: translateY(-50%) rotate(5deg); }
+    to{ transform: translateY(-50%) rotate(15deg); }
+}
+
+/* TEXT & BUTTONS */
 .name{ font-size:30px; margin-bottom:10px; }
 .tagline{ opacity:0.8; margin-bottom:20px; }
 
@@ -135,7 +148,7 @@ body{
     border-radius:50px;
     text-decoration:none;
     font-weight:bold;
-    transition: 0.3s;
+    transition:0.3s;
 }
 
 .insta-btn{ border:2px solid white; color:white; }
@@ -143,4 +156,4 @@ body{
 
 .discord-btn{ border:2px solid #5865F2; color:#5865F2; margin-left: 10px; }
 .discord-btn:hover{ background:#5865F2; color:white; }
-    
+
