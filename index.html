@@ -10,56 +10,58 @@
 
 <body>
 
-    <video autoplay muted loop playsinline class="bg-video">
-        <source src="levi.mp4" type="video/mp4">
-    </video>
+<video autoplay muted loop playsinline class="bg-video">
+    <source src="levi.mp4" type="video/mp4">
+</video>
 
-    <div class="main">
+<div id="intro">
+    <h1 class="enter-text">ENTER IN HEAVEN</h1>
+</div>
 
-        <div class="pfp-container">
-            <div class="halo"></div>
-            
-            <div class="wing left-wing"></div>
-            
-            <img src="levinew.webp" class="pfp" alt="Naman">
-            
-            <div class="wing right-wing"></div>
-        </div>
+<div class="main">
 
-        <h1 class="name">Naman</h1>
-        <p class="tagline">Blessed with vision. Built different.</p>
-
-        <div class="skills">
-            <span>Visionary</span>
-            <span>Creative</span>
-            <span>Divine Energy</span>
-            <span>Chosen One</span>
-        </div>
-
-        <div class="button-group">
-            <a href="https://instagram.com/wanabenaman" target="_blank" class="insta-btn">
-                <i class="fa-brands fa-instagram"></i> Angel Realm
-            </a>
-
-            <a href="https://discord.gg/minato.irl" target="_blank" class="discord-btn">
-                <i class="fa-brands fa-discord"></i> Angel Nhiris
-            </a>
-        </div>
-
+    <div class="pfp-container">
+        <div class="wing left-wing"></div>
+        
+        <img src="levinew.webp" class="pfp" alt="Naman">
+        
+        <div class="wing right-wing"></div>
     </div>
 
-    <audio id="bg-music" autoplay loop>
-        <source src="angel-music.m4a.mp3" type="audio/mpeg">
-    </audio>
+    <h1 class="name">Naman</h1>
+    <p class="tagline">Blessed with vision. Built different.</p>
 
-    <script>
-        // Browser policy ki wajah se kabhi kabhi autoplay block hota hai, 
-        // isliye screen par kahin bhi touch karte hi music start ho jayega.
-        document.body.addEventListener('click', function() {
-            const music = document.getElementById("bg-music");
-            music.play();
-        }, { once: true });
-    </script>
+    <div class="skills">
+        <span>Visionary</span>
+        <span>Creative</span>
+        <span>Divine Energy</span>
+        <span>Chosen One</span>
+    </div>
+
+    <a href="https://instagram.com/wanabenaman" target="_blank" class="insta-btn">
+        <i class="fa-brands fa-instagram"></i> Angel Realm
+    </a>
+
+    <a href="https://discord.gg/minato.irl" target="_blank" class="discord-btn">
+        <i class="fa-brands fa-discord"></i> Angel Nhiris
+    </a>
+
+</div>
+
+<audio id="bg-music" loop>
+    <source src="angel-music.m4a.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const intro = document.getElementById("intro");
+const music = document.getElementById("bg-music");
+
+intro.addEventListener("click", () => {
+    intro.classList.add("hide");
+    music.volume = 0.5;
+    music.play();
+});
+</script>
 
 </body>
 </html>
