@@ -1,10 +1,8 @@
-/* --- COMPLETE FINAL CSS BY GEMINI --- */
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
 }
 
 body{
@@ -17,7 +15,7 @@ body{
     background: #000;
 }
 
-/* 🎥 VIDEO BACKGROUND */
+/* 🎥 VIDEO */
 .bg-video{
     position:fixed;
     top:0;
@@ -28,86 +26,36 @@ body{
     z-index:-2;
 }
 
-/* ✨ INTRO OVERLAY (HEAVEN GATE) */
-#intro{
-    position:fixed;
-    inset:0;
-    backdrop-filter:blur(25px);
-    background:rgba(0,0,0,0.8);
-    display:flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items:center;
-    z-index:100;
-    cursor:pointer;
-    transition:opacity 0.8s ease;
-}
-
-#intro.hide{
-    opacity:0;
-    pointer-events:none;
-}
-
-.intro-content { text-align: center; }
-
-.enter-text{
-    font-size:34px;
-    font-weight:bold;
-    letter-spacing:5px;
-    color:white;
-    text-shadow: 0 0 15px #fff, 0 0 30px #fff;
-    animation: pulse 2s infinite;
-}
-
-.sub-text {
-    margin-top: 15px;
-    font-size: 14px;
-    letter-spacing: 3px;
-    color: rgba(255, 255, 255, 0.6);
-    text-transform: uppercase;
-    animation: fadeInOut 2s infinite ease-in-out;
-}
-
-.glow-point {
-    width: 6px;
-    height: 6px;
-    background: white;
-    border-radius: 50%;
-    margin: 25px auto;
-    box-shadow: 0 0 15px 5px white;
-    animation: pulseGlow 1.5s infinite;
-}
-
-/* 🏠 MAIN CONTENT */
+/* 🏠 MAIN */
 .main{
     text-align:center;
     z-index:5;
     position:relative;
 }
 
-/* 👼 PFP CONTAINER SETUP */
+/* 👼 PFP CONTAINER */
 .pfp-container{
     position:relative;
     display:inline-flex;
     justify-content:center;
     align-items:center;
     margin-bottom:20px;
-    perspective: 1000px; /* Important for Halo 3D */
+    perspective: 1000px;
 }
 
-/* 😇 ANIMATED HALO.PNG */
+/* 😇 HALO.PNG (Seedha & Animated) */
 .halo {
     position: absolute;
-    top: -50px; /* PFP ke sir ke upar set karein */
-    width: 160px;
-    height: 160px;
+    top: -45px; 
+    width: 150px;
+    height: 150px;
     z-index: 3;
     background: url('halo.png') no-repeat center center;
     background-size: contain;
-    /* Halo ko seedha (flat) karne ke liye rotateX */
+    /* Isse halo flat dikhega */
     transform: rotateX(75deg); 
-    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.9));
-    animation: haloRotate 6s linear infinite;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+    animation: haloRotate 5s linear infinite;
     pointer-events: none;
 }
 
@@ -116,18 +64,83 @@ body{
     to { transform: rotateX(75deg) rotateZ(360deg); }
 }
 
-/* 🖼️ PROFILE IMAGE */
+/* 🪽 WINGS (Single File Logic) */
+.wing {
+    position: absolute;
+    top: 50%;
+    width: 180px; 
+    height: 120px;
+    z-index: 1; 
+    pointer-events: none;
+    background-image: url('wings.png'); 
+    background-size: 200% 100%; 
+    background-repeat: no-repeat;
+}
+
+.left-wing {
+    left: -130px; 
+    background-position: left center;
+    transform: translateY(-50%) rotate(-10deg);
+    transform-origin: right center;
+    animation: flapLeft 2.2s ease-in-out infinite alternate;
+}
+
+.right-wing {
+    right: -130px;
+    background-position: right center;
+    transform: translateY(-50%) rotate(10deg);
+    transform-origin: left center;
+    animation: flapRight 2.2s ease-in-out infinite alternate;
+}
+
+/* 🖼️ PFP */
 .pfp{
-    width:150px;
-    height:150px;
+    width:140px;
+    height:140px;
     border-radius:50%;
     object-fit:cover;
     border:3px solid white;
     position:relative;
-    z-index:2; /* Wings ke upar rahegi */
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    z-index:2;
 }
 
-/* 🪽 WINGS (Using separate files) */
-.wing{
+/* 🎭 ANIMATIONS */
+@keyframes flapLeft {
+    from { transform: translateY(-50%) rotate(-5deg); }
+    to { transform: translateY(-50%) rotate(-15deg); }
+}
+
+@keyframes flapRight {
+    from { transform: translateY(-50%) rotate(5deg); }
+    to { transform: translateY(-50%) rotate(15deg); }
+}
+
+/* ✍️ TEXT & BUTTONS */
+.name{ font-size:30px; margin-bottom:10px; }
+.tagline{ opacity:0.8; margin-bottom:20px; }
+
+.skills span{
+    display:inline-block;
+    padding:8px 16px;
+    margin:6px;
+    border-radius:30px;
+    font-size:12px;
+    background:rgba(255,255,255,0.15);
+}
+
+.insta-btn, .discord-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:14px 40px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:bold;
+    transition: 0.3s;
+}
+
+.insta-btn{ border:2px solid white; color:white; }
+.insta-btn:hover{ background:white; color:black; }
+
+.discord-btn{ border:2px solid #5865F2; color:#5865F2; margin-left: 10px; }
+.discord-btn:hover{ background:#5865F2; color:white; }
     
