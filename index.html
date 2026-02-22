@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Naman ✨</title>
+    
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 </head>
@@ -25,13 +26,16 @@
 
     <div class="pfp-container">
 
-        <!-- 😇 Halo Image -->
+        <!-- 😇 Halo -->
         <img src="hola.png" class="halo" alt="halo">
 
+        <!-- 🪽 Left Wing -->
         <div class="wing left-wing"></div>
-        
+
+        <!-- 👤 Profile Image -->
         <img src="levinew.webp" class="pfp" alt="Naman">
-        
+
+        <!-- 🪽 Right Wing -->
         <div class="wing right-wing"></div>
 
     </div>
@@ -46,13 +50,15 @@
         <span>Chosen One</span>
     </div>
 
-    <a href="https://instagram.com/wanabenaman" target="_blank" class="insta-btn">
-        <i class="fa-brands fa-instagram"></i> Angel Realm
-    </a>
+    <div class="buttons">
+        <a href="https://instagram.com/wanabenaman" target="_blank" class="insta-btn">
+            <i class="fa-brands fa-instagram"></i> Angel Realm
+        </a>
 
-    <a href="https://discord.gg/minato.irl" target="_blank" class="discord-btn">
-        <i class="fa-brands fa-discord"></i> Angel Nhiris
-    </a>
+        <a href="https://discord.gg/minato.irl" target="_blank" class="discord-btn">
+            <i class="fa-brands fa-discord"></i> Angel Nhiris
+        </a>
+    </div>
 
 </div>
 
@@ -68,10 +74,9 @@ const music = document.getElementById("bg-music");
 intro.addEventListener("click", () => {
     intro.classList.add("hide");
     music.volume = 0.5;
-    music.play();
+    music.play().catch(() => {});
 });
 </script>
 
 </body>
-</html>
-
+    </html>
