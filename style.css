@@ -74,39 +74,7 @@ body{
     justify-content:center;
     align-items:center;
     margin-bottom:20px;
-}
 
-/* 😇 HALO IMAGE (FIXED PERFECT VERSION) */
-.halo{
-    position:absolute;
-    top:-105px;              /* 👈 PFP se thoda gap */
-    left:50%;
-    transform:translateX(-50%);
-    width:220px;             /* 👈 bigger halo */
-    z-index:3;
-    pointer-events:none;
-
-    animation: haloRotate 8s linear infinite,
-               glowHalo 2.5s ease-in-out infinite alternate,
-               floatHalo 4s ease-in-out infinite;
-}
-
-/* Smooth Proper Rotation (Centered Fix) */
-@keyframes haloRotate{
-    from{ transform:translateX(-50%) rotate(0deg); }
-    to{ transform:translateX(-50%) rotate(360deg); }
-}
-
-/* Glow Pulse */
-@keyframes glowHalo{
-    from{ filter: drop-shadow(0 0 8px white); }
-    to{ filter: drop-shadow(0 0 25px white); }
-}
-
-/* Soft Floating */
-@keyframes floatHalo{
-    0%,100%{ top:-105px; }
-    50%{ top:-112px; }
 }
 
 /* PROFILE IMAGE */
