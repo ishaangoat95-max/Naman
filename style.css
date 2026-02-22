@@ -76,22 +76,25 @@ body{
     margin-bottom:20px;
 }
 
-/* 😇 HALO IMAGE (hola.png) */
+/* 😇 HALO IMAGE (FIXED PERFECT VERSION) */
 .halo{
     position:absolute;
-    top:-75px;
-    width:160px;
+    top:-105px;              /* 👈 PFP se thoda gap */
+    left:50%;
+    transform:translateX(-50%);
+    width:220px;             /* 👈 bigger halo */
     z-index:3;
     pointer-events:none;
-    animation: rotateHalo 10s linear infinite,
+
+    animation: haloRotate 8s linear infinite,
                glowHalo 2.5s ease-in-out infinite alternate,
                floatHalo 4s ease-in-out infinite;
 }
 
-/* Smooth Rotation */
-@keyframes rotateHalo{
-    from{ transform: rotate(0deg); }
-    to{ transform: rotate(360deg); }
+/* Smooth Proper Rotation (Centered Fix) */
+@keyframes haloRotate{
+    from{ transform:translateX(-50%) rotate(0deg); }
+    to{ transform:translateX(-50%) rotate(360deg); }
 }
 
 /* Glow Pulse */
@@ -102,8 +105,8 @@ body{
 
 /* Soft Floating */
 @keyframes floatHalo{
-    0%,100%{ margin-top:0px; }
-    50%{ margin-top:-6px; }
+    0%,100%{ top:-105px; }
+    50%{ top:-112px; }
 }
 
 /* PROFILE IMAGE */
