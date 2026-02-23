@@ -12,6 +12,7 @@ body{
     justify-content:center;
     align-items:center;
     color:white;
+    background:black;
 }
 
 /* VIDEO */
@@ -23,6 +24,78 @@ body{
     height:100%;
     object-fit:cover;
     z-index:-2;
+    filter:brightness(0.7);
+}
+
+/* 🔥 NAME GATE */
+#nameGate{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.9);
+    backdrop-filter:blur(20px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    transition:opacity 0.6s ease;
+}
+
+.gate-card{
+    width:320px;
+    padding:40px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(25px);
+    text-align:center;
+    box-shadow:0 0 40px #00f7ff40;
+    animation:fadeIn 0.8s ease;
+}
+
+.gate-card h2{
+    color:#00f7ff;
+    margin-bottom:20px;
+    text-shadow:0 0 12px #00f7ff;
+    letter-spacing:2px;
+}
+
+.gate-card input{
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #00f7ff55;
+    background:#111;
+    color:white;
+    text-align:center;
+    margin-bottom:15px;
+    outline:none;
+    transition:0.3s;
+}
+
+.gate-card input:focus{
+    box-shadow:0 0 12px #00f7ff;
+}
+
+.gate-card button{
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:none;
+    background:#00f7ff;
+    color:black;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.gate-card button:hover{
+    box-shadow:0 0 20px #00f7ff;
+    transform:scale(1.05);
+}
+
+#error{
+    color:#ff2e63;
+    margin-top:10px;
+    text-shadow:0 0 8px #ff2e63;
 }
 
 /* INTRO OVERLAY */
@@ -51,7 +124,7 @@ body{
     letter-spacing:5px;
     color:white;
     text-align:center;
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff;
+    text-shadow:0 0 10px #fff,0 0 20px #fff,0 0 40px #fff;
     animation:pulse 2s infinite;
 }
 
@@ -74,7 +147,6 @@ body{
     justify-content:center;
     align-items:center;
     margin-bottom:20px;
-
 }
 
 /* PROFILE IMAGE */
@@ -86,6 +158,7 @@ body{
     border:3px solid white;
     position:relative;
     z-index:2;
+    box-shadow:0 0 25px rgba(255,255,255,0.4);
 }
 
 /* WINGS */
@@ -95,37 +168,37 @@ body{
     width:180px;
     height:130px;
     z-index:1;
-    background-image: url('wings.png');
-    background-size: 200% 100%;
-    background-repeat: no-repeat;
-    pointer-events: none;
-    filter: drop-shadow(0 0 8px rgba(255,255,255,0.5));
+    background-image:url('wings.png');
+    background-size:200% 100%;
+    background-repeat:no-repeat;
+    pointer-events:none;
+    filter:drop-shadow(0 0 10px rgba(255,255,255,0.6));
 }
 
 .left-wing{
     left:-130px;
     background-position:left center;
-    transform: translateY(-50%) rotate(-10deg);
+    transform:translateY(-50%) rotate(-10deg);
     transform-origin:right center;
-    animation: flapLeft 2.2s ease-in-out infinite alternate;
+    animation:flapLeft 2.2s ease-in-out infinite alternate;
 }
 
 .right-wing{
     right:-130px;
     background-position:right center;
-    transform: translateY(-50%) rotate(10deg);
+    transform:translateY(-50%) rotate(10deg);
     transform-origin:left center;
-    animation: flapRight 2.2s ease-in-out infinite alternate;
+    animation:flapRight 2.2s ease-in-out infinite alternate;
 }
 
 @keyframes flapLeft{
-    from{ transform: translateY(-50%) rotate(-5deg); }
-    to{ transform: translateY(-50%) rotate(-15deg); }
+    from{ transform:translateY(-50%) rotate(-5deg); }
+    to{ transform:translateY(-50%) rotate(-15deg); }
 }
 
 @keyframes flapRight{
-    from{ transform: translateY(-50%) rotate(5deg); }
-    to{ transform: translateY(-50%) rotate(15deg); }
+    from{ transform:translateY(-50%) rotate(5deg); }
+    to{ transform:translateY(-50%) rotate(15deg); }
 }
 
 /* TEXT & BUTTONS */
@@ -177,4 +250,10 @@ body{
 .discord-btn:hover{ 
     background:#5865F2; 
     color:white; 
+}
+
+/* Animations */
+@keyframes fadeIn{
+    from{opacity:0; transform:scale(0.9);}
+    to{opacity:1; transform:scale(1);}
     }
