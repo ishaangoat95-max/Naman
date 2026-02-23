@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -9,18 +9,17 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 
 <style>
+
 /* 🔥 Neon Entry Overlay */
 #nameGate{
     position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
+    inset:0;
     background:black;
     display:flex;
     justify-content:center;
     align-items:center;
     z-index:9999;
+    transition:opacity 0.8s ease;
 }
 
 .gate-card{
@@ -44,12 +43,12 @@
     width:100%;
     padding:12px;
     margin-bottom:15px;
-    border:none;
     border-radius:10px;
     background:#111;
     color:white;
     text-align:center;
     border:1px solid #00f7ff55;
+    outline:none;
 }
 
 .gate-card button{
@@ -61,6 +60,11 @@
     color:black;
     font-weight:bold;
     cursor:pointer;
+    transition:0.3s;
+}
+
+.gate-card button:hover{
+    box-shadow:0 0 20px #00f7ff;
 }
 
 #error{
@@ -68,6 +72,7 @@
     margin-top:10px;
     text-shadow:0 0 8px #ff2e63;
 }
+
 </style>
 </head>
 
@@ -78,7 +83,7 @@
     <div class="gate-card">
         <h2>⚡ Enter Your Name</h2>
         <input type="text" id="username" placeholder="Your Name">
-        <button onclick="checkName()">Enter Heaven</button>
+        <button id="enterBtn">Enter Heaven</button>
         <p id="error"></p>
     </div>
 </div>
@@ -88,39 +93,34 @@
     <source src="levi.mp4" type="video/mp4">
 </video>
 
-<!-- ✨ Intro Screen -->
-<div id="intro">
-    <h1 class="enter-text">ENTER IN HEAVEN</h1>
-</div>
-
-<!-- 🔥 Main Content -->
+<!-- ✨ Main Content -->
 <div class="main">
 
-    <div class="pfp-container">
-        <div class="wing left-wing"></div>
-        <img src="levinew.webp" class="pfp" alt="Naman">
-        <div class="wing right-wing"></div>
-    </div>
+<div class="pfp-container">
+    <div class="wing left-wing"></div>
+    <img src="levinew.webp" class="pfp" alt="Naman">
+    <div class="wing right-wing"></div>
+</div>
 
-    <h1 class="name">Naman</h1>
-    <p class="tagline">Blessed with vision. Built different.</p>
+<h1 class="name">Naman</h1>
+<p class="tagline">Blessed with vision. Built different.</p>
 
-    <div class="skills">
-        <span>Visionary</span>
-        <span>Creative</span>
-        <span>Divine Energy</span>
-        <span>Chosen One</span>
-    </div>
+<div class="skills">
+    <span>Visionary</span>
+    <span>Creative</span>
+    <span>Divine Energy</span>
+    <span>Chosen One</span>
+</div>
 
-    <div class="buttons">
-        <a href="https://instagram.com/wanabenaman" target="_blank" class="insta-btn">
-            <i class="fa-brands fa-instagram"></i> Angel Realm
-        </a>
+<div class="buttons">
+    <a href="https://instagram.com/wanabenaman" target="_blank" class="insta-btn">
+        <i class="fa-brands fa-instagram"></i> Angel Realm
+    </a>
 
-        <a href="https://discord.gg/minato.irl" target="_blank" class="discord-btn">
-            <i class="fa-brands fa-discord"></i> Angel Nhiris
-        </a>
-    </div>
+    <a href="https://discord.gg/minato.irl" target="_blank" class="discord-btn">
+        <i class="fa-brands fa-discord"></i> Angel Nhiris
+    </a>
+</div>
 
 </div>
 
@@ -131,14 +131,21 @@
 
 <script>
 
-const allowedNames = ["Naman","Ishaan"]; // change if needed
-const webhookURL = "https://discord.com/api/webhooks/1475469012350664784/rAtuS27_rjaxm1agmqgYqebNAXMEcDMThy6YD24GO2Ew6GIUOZe6VYeA3FmH1mtV0u5S
+const allowedNames = ["naman","ishaan"]; // lowercase
+const webhookURL = ""; // ⚠️ optional – leave empty if not using
 
-"; // ⚠️ paste new webhook
+const input = document.getElementById("username");
+const button = document.getElementById("enterBtn");
+const error = document.getElementById("error");
+
+button.addEventListener("click", checkName);
+input.addEventListener("keypress", function(e){
+    if(e.key === "Enter") checkName();
+});
 
 function checkName(){
-    const name = document.getElementById("username").value.trim();
-    const error = document.getElementById("error");
+
+    const name = input.value.trim().toLowerCase();
 
     if(name === ""){
         error.textContent = "⚠ Enter your name!";
@@ -152,27 +159,25 @@ function checkName(){
 
     error.textContent = "";
 
-    // 🔥 Discord Webhook Send
-    fetch(webhookURL,{
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({
-            embeds:[{
-                title:"🔥 Heaven Access",
-                color:65535,
-                fields:[
-                    {name:"👤 Name",value:name},
-                    {name:"🌍 Page",value:window.location.href},
-                    {name:"⏰ Time",value:new Date().toLocaleString()}
-                ]
-            }]
-        })
-    });
+    // 🔥 Optional Webhook
+    if(webhookURL !== ""){
+        fetch(webhookURL,{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify({
+                content:`🔥 Heaven Access\n👤 Name: ${name}\n🌍 Page: ${window.location.href}\n⏰ ${new Date().toLocaleString()}`
+            })
+        }).catch(()=>{});
+    }
 
-    // Remove gate
-    document.getElementById("nameGate").style.display="none";
+    // ✨ Smooth fade
+    const gate = document.getElementById("nameGate");
+    gate.style.opacity = "0";
+    setTimeout(()=>{
+        gate.style.display = "none";
+    },800);
 
-    // Start music
+    // 🎵 Start music
     const music = document.getElementById("bg-music");
     music.volume = 0.5;
     music.play().catch(()=>{});
